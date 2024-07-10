@@ -8,14 +8,14 @@ exports.handler = async function (event, context) {
 
   try {
     const response = await axios.post(API_URL, {
-      prompt: prompt,
-      max_tokens: 100,
-      stop: ['\n', '.', ',', '!', '?']
-    }, {
+      prompt: "prompt",
+      max_tokens: 1000
+    },
+    {
       headers: {
         'Authorization': `Bearer ${API_KEY}`,
         'Content-Type': 'application/json',
-      },
+      }
     });
 
     return {
