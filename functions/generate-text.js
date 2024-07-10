@@ -21,7 +21,7 @@ exports.handler = async function (event, context) {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "https://interessenwoche.github.io",
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST",
         "Access-Control-Allow-Headers": "Content-Type"
       },
@@ -32,7 +32,7 @@ exports.handler = async function (event, context) {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "https://interessenwoche.github.io",
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST",
         "Access-Control-Allow-Headers": "Content-Type"
       },
