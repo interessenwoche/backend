@@ -24,9 +24,9 @@ exports.handler = async function (event, context) {
         "Access-Control-Allow-Methods": "POST",
         "Access-Control-Allow-Headers": "Content-Type"
       },
-      body: JSON.stringify({data: JSON.stringify(response.data), "statusCode": response.statusCode}),
+      body: JSON.stringify(response.data),
     };
-  } catch (error) {
+  } catch (err) {
     console.error(error);
     return {
       statusCode: 200,
@@ -35,7 +35,7 @@ exports.handler = async function (event, context) {
         "Access-Control-Allow-Methods": "POST",
         "Access-Control-Allow-Headers": "Content-Type"
       },
-      body: JSON.stringify({ error: 'Failed to generate text', "statusCode": response.statusCode }),
+      body: JSON.stringify({ err: 'Failed to generate text' }),
     };
   }
 };
