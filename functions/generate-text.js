@@ -24,7 +24,7 @@ exports.handler = async function (event, context) {
         "Access-Control-Allow-Methods": "POST",
         "Access-Control-Allow-Headers": "Content-Type"
       },
-      body: JSON.stringify(response.data),
+      body: JSON.stringify(response.json),
     };
   } catch (error) {
     console.error(error);
