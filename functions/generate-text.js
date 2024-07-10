@@ -20,12 +20,13 @@ exports.handler = async function (event, context) {
 
     return {
       statusCode: 200,
+      headers: { "Access-Control-Allow-Origin" : "*"},
       body: JSON.stringify(response.data),
     };
   } catch (error) {
     console.error(error);
     return {
-      statusCode: 500,
+      statusCode: 200,
       headers: { "Access-Control-Allow-Origin" : "*"},
       body: JSON.stringify({ error: 'Failed to generate text' }),
     };
