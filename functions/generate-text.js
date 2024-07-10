@@ -26,6 +26,7 @@ exports.handler = async function (event, context) {
     console.error(error);
     return {
       statusCode: 500,
+      headers: { "Access-Control-Allow-Origin" : "*"},
       body: JSON.stringify({ error: 'Failed to generate text' }),
     };
   }
