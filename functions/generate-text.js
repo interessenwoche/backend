@@ -1,21 +1,20 @@
-const axios = require('axios');
+const openAI = require('openai');
 
 const API_KEY = process.env.CHATGPT_API_KEY;
-const API_URL = 'https://api.openai.com/v1/engines/davinci-codex/completions';
+const prompt = "what is the capital of switzerland";
 
 exports.handler = async function (event, context) {
-  const prompt = event.queryStringParameters.message;
+
+  const openai = new openAI({
+    apiKey: API_KEY,
+  });
 
   try {
-    const response = await axios.post(API_URL, {
-      prompt: "prompt",
-      max_tokens: 1000
-    },
-    {
-      headers: {
-        'Authorization': `Bearer ${API_KEY}`,
-        'Content-Type': 'application/json',
-      }
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: prompt}],
+      temperature: 0,
+      max_tokens: 1000,
     });
 
     return {
